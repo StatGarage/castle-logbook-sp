@@ -1,0 +1,84 @@
+/* サポートページとプライバシーポリシーの見た目。アイコンの柿色と焦茶に合わせる。 */
+:root {
+  --bg: #faf6ee;
+  --surface: #fffdf8;
+  --fg: #2e2117;
+  --muted: #6e5e50;
+  --accent: #a8641a;
+  --line: #e6dccb;
+  color-scheme: light;
+}
+@media (prefers-color-scheme: dark) {
+  :root {
+    --bg: #1d1712;
+    --surface: #261e17;
+    --fg: #f1e8dc;
+    --muted: #b9a993;
+    --accent: #e3a45a;
+    --line: #3d3127;
+    color-scheme: dark;
+  }
+}
+* { box-sizing: border-box; }
+body {
+  margin: 0;
+  background: var(--bg);
+  color: var(--fg);
+  font-family: -apple-system, BlinkMacSystemFont, "Hiragino Sans", "Yu Gothic", "Noto Sans JP", sans-serif;
+  font-size: 16px;
+  line-height: 1.8;
+  -webkit-text-size-adjust: 100%;
+}
+header.site, nav, main {
+  max-width: 720px;
+  margin: 0 auto;
+  padding-left: max(20px, env(safe-area-inset-left));
+  padding-right: max(20px, env(safe-area-inset-right));
+}
+header.site {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 16px;
+  padding-block: 20px 8px;
+}
+.brand {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  color: var(--fg);
+  font-weight: 700;
+  font-size: 18px;
+  text-decoration: none;
+}
+.brand img { border-radius: 9px; }
+.lang { color: var(--muted); font-size: 14px; }
+nav {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 4px 20px;
+  padding-block: 4px 12px;
+  border-bottom: 1px solid var(--line);
+  font-size: 14px;
+}
+nav a { color: var(--muted); text-decoration: none; }
+nav a[aria-current="page"] { color: var(--fg); font-weight: 600; }
+main { padding-block: 8px 64px; }
+h1 { font-size: 26px; line-height: 1.4; margin: 28px 0 16px; text-wrap: balance; }
+h2 { font-size: 18px; line-height: 1.5; margin: 32px 0 8px; }
+p, ul { margin: 0 0 16px; }
+ul { padding-left: 1.4em; }
+li { margin-bottom: 4px; }
+a { color: var(--accent); overflow-wrap: anywhere; }
+a:focus-visible { outline: 2px solid var(--accent); outline-offset: 2px; }
+ul.links { list-style: none; padding: 0; display: grid; gap: 12px; }
+ul.links a {
+  display: block;
+  padding: 14px 18px;
+  background: var(--surface);
+  border: 1px solid var(--line);
+  border-radius: 12px;
+  color: var(--fg);
+  font-weight: 600;
+  text-decoration: none;
+}
